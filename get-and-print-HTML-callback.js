@@ -11,23 +11,26 @@ function printHTML (html) {
 
 function getHTML (options, callback) {
 
- let responseText = "";
+  let responseText = "";
 
- https.get(options, function(response)
-   {
-     response.setEncoding('utf8');
+  https.get(options, function(response) {
 
-     response.on('data', function(data)
-       {
-         responseText += data;
-       });
+    response.setEncoding('utf8');
 
-     response.on('end', function(data)
-       {
-         console.log('Data stream complete:');
-         callback(responseText);
-       });
-   });
+    response.on('data', function(data)
+      {
+        responseText += data;
+      });
+
+    response.on('end', function(data)
+      {
+        if (callback)
+        {
+          console.log('Data stream complete:');
+          callback(responseText);
+        }
+      });
+    });
 }
 
-getHTML(requestOptions, printHTML);
+getHTML(requestOptions);
