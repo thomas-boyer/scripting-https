@@ -6,7 +6,7 @@ const printLowercase = function(html) {
 
 var requestOptions = {
   host: 'sytantris.github.io',
-  path: '/http-examples/step5.html'
+  path: '/http-examples/step6/lowercase.html'
 };
 
 getHTML(requestOptions, printLowercase);
