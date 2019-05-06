@@ -33,4 +33,4 @@ function getHTML (options, callback) {
     });
 }
 
-getHTML(requestOptions);
+getHTML(requestOptions, printHTML);
