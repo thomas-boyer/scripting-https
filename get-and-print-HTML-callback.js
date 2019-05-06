@@ -2,7 +2,7 @@ let https = require('https');
 
 var requestOptions = {
  host: 'sytantris.github.io',
- path: '/http-examples/step3.html'
+ path: '/http-examples/step4.html'
 };
 
 function printHTML (html) {
@@ -25,9 +25,9 @@ function getHTML (options, callback) {
      response.on('end', function(data)
        {
          console.log('Data stream complete:');
-         console.log(responseText);
+         callback(responseText);
        });
    });
 }
 
-getAndPrintHTML(requestOptions);
+getHTML(requestOptions, printHTML);
